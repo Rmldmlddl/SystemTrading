@@ -85,9 +85,9 @@ while True:
     # upper order filled
     if upper_open_order_info['data']['state'] == 'filled' and upper_close_order_info['data']['state'] == 'filled':
         # update price
-        pivot_price = upper_price
-        upper_price = pivot_price + price_gap
-        lower_price = pivot_price - price_gap
+        pivot_price = int(upper_price)
+        upper_price = str(pivot_price + price_gap)
+        lower_price = str(pivot_price - price_gap)
 
         # cancel previous lower order
         orderApi.cancel_orders(symbol=symbol, marginCoin=marginCoin, orderId=lower_open_orderID)
@@ -113,9 +113,9 @@ while True:
     # lower order filled
     elif lower_open_order_info['data']['state'] == 'filled' and lower_close_order_info['data']['state'] == 'filled':
         # update price
-        pivot_price = lower_price
-        upper_price = pivot_price + price_gap
-        lower_price = pivot_price - price_gap
+        pivot_price = int(lower_price)
+        upper_price = str(pivot_price + price_gap)
+        lower_price = str(pivot_price - price_gap)
 
         # cancel previous upper order
         orderApi.cancel_orders(symbol=symbol, marginCoin=marginCoin, orderId=upper_open_orderID)
