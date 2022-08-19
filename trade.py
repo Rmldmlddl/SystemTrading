@@ -32,7 +32,7 @@ print(orderID)
 detail = orderApi.detail(symbol, orderID)
 '''
 
-# Size rebalancing
+# Size balancing
 account = accountApi.account(symbol, marginCoin)
 first_order_size = float(account['data']['btcEquity']) * 0.4
 
