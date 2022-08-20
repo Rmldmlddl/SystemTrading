@@ -85,7 +85,7 @@ while True:
     # upper order filled
     if upper_open_order_info['data']['state'] == 'filled' and upper_close_order_info['data']['state'] == 'filled':
         # update price
-        pivot_price = int(upper_price)
+        pivot_price = float(upper_price)
         upper_price = str(pivot_price + price_gap)
         lower_price = str(pivot_price - price_gap)
 
@@ -113,7 +113,7 @@ while True:
     # lower order filled
     elif lower_open_order_info['data']['state'] == 'filled' and lower_close_order_info['data']['state'] == 'filled':
         # update price
-        pivot_price = int(lower_price)
+        pivot_price = float(lower_price)
         upper_price = str(pivot_price + price_gap)
         lower_price = str(pivot_price - price_gap)
 
